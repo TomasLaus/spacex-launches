@@ -1,21 +1,29 @@
 ---
+import type { GetStaticPaths } from "astro";
 import { type APISpaceXResponse } from "../types/api";
 import CardLaunch from "./CardLaunch.astro";
 
-import { getLatestLaunches } from '../services/spacex'
-const launches = await getLatestLaunches()
+import { getLatestLaunches } from "../services/spacex";
+import Pagination from "./Pagination.astro";
+
+let launches = await getLatestLaunches();
+
+{
+  launches.slice(1, 49);
+}
 ---
 
 <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
   {
     launches.map((launch) => (
-        <CardLaunch 
-            id={launch.id}
-            img={launch.links.patch.small}
-            details={launch.details}
-            flightNumber={launch.flight_number}
-            success={launch.success}
-        />
+      <CardLaunch
+        id={launch.id}
+        img={launch.links.patch.small}
+        details={launch.details}
+        flightNumber={launch.flight_number}
+        success={launch.success}
+        name={launch.name}
+      />
     ))
   }
 </div>

@@ -11,7 +11,31 @@ export const getLaunchById = async ({ id }: { id: string }) => {
 }
 
 
-export const getLatestLaunches = async () => {
+export const getOldestLaunches = async (num: number = 20) => {
+    const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            query: {},
+            options: {
+                sort: {
+                    date_unix: "desc",
+                },
+                limit: 20 + num,
+            },
+        }),
+    });
+    const { docs: launches } = (await res.json()) as APISpaceXResponse;
+
+    console.log(launches);
+
+    return launches
+}
+
+
+export const getLatestLaunches = async (num: number = 20) => {
     const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
         method: "POST",
         headers: {
@@ -23,7 +47,7 @@ export const getLatestLaunches = async () => {
                 sort: {
                     date_unix: "asc",
                 },
-                limit: 12,
+                limit: 20 + num,
             },
         }),
     });

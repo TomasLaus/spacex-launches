@@ -24,7 +24,11 @@ export const prerender = false
   <article class="flex gap-y-4 flex-col">
     <img
       class="w-52 h-auto"
-      src={launch?.links?.patch.small}
+      src={
+      launch?.links?.patch.small ?
+      launch?.links?.patch.small :
+      '../../../public/not_found.png'
+      }
       alt={launch?.name}
     />
     <h2 class="text-4xl text-white font-bold">
