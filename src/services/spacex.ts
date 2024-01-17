@@ -11,7 +11,7 @@ export const getLaunchById = async ({ id }: { id: string }) => {
 }
 
 
-export const getOldestLaunches = async (num: number = 20) => {
+export const getOldestLaunches = async (num: number = 0) => {
     const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
         method: "POST",
         headers: {
@@ -35,7 +35,7 @@ export const getOldestLaunches = async (num: number = 20) => {
 }
 
 
-export const getLatestLaunches = async (num: number = 20) => {
+export const getLatestLaunches = async (num: number = 0) => {
     const res = await fetch("https://api.spacexdata.com/v5/launches/query", {
         method: "POST",
         headers: {

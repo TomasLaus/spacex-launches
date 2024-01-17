@@ -16,14 +16,15 @@ export async function getStaticPaths() {
     params: { id: launch.id },
   }));
 }
+console.log(id, 'id')
 
 export const prerender = false
 ---
 
 <Layout title=`Lanzamiento ${id}`>
-  <article class="flex gap-y-4 flex-col">
+  <article class="flex gap-y-4 flex-col justify-center text-center">
     <img
-      class="w-52 h-auto"
+      class="w-[50%] p-0 m-auto justify-center"
       src={
       launch?.links?.patch.small ?
       launch?.links?.patch.small :
