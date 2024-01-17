@@ -2,7 +2,7 @@
 
 <img src='./public/astro.png'/>
 
-## [Live Demo](https://github.com/TomasLaus) 
+## [Live Demo](https://space-x-launches-webapp.vercel.app/) 
 
 
 
