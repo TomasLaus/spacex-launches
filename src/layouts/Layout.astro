@@ -16,11 +16,11 @@ const { title } = Astro.props;
       var fi: any = document.getElementById("changingFavicon");
   
       window.onfocus = function () {
-        fi.setAttribute("href", "../../public/favicon.svg");
+        fi.setAttribute("href", "/favicon.svg");
       };
   
       window.onblur = function () {
-        fi.setAttribute("href", "../../public/favicon-out.svg");
+        fi.setAttribute("href", "/favicon-out.svg");
       };
     </script>
     <meta charset="UTF-8" />
@@ -29,7 +29,7 @@ const { title } = Astro.props;
       rel="icon"
       type="image/svg+xml"
       id="changingFavicon"
-      href={"../../public/favicon.svg"}
+      href={"/favicon.svg"}
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{title}</title>
